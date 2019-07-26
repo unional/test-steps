@@ -11,6 +11,11 @@ workflows:
             - node-latest
             - node9
             - node8
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
+                - /rel-.*/
 jobs:
   node-latest:
     docker:
@@ -24,13 +29,11 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run: npm install
-      - run: npm install --no-save codecov
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run verify
-      - run: npx codecov
   node9:
     docker:
       - image: 'circleci/node:9'
