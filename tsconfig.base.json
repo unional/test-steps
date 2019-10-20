@@ -2,21 +2,22 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "lib": [
       "es2015"
     ],
-    "module": "commonjs",
     "moduleResolution": "node",
     "newLine": "LF",
-    "noImplicitAny": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "outDir": "dist",
+    "noUnusedParameters": true,
     "removeComments": false,
     "sourceMap": true,
-    "strictNullChecks": true,
-    "target": "es2015"
+    "strict": true
   },
+  "include": [
+    "typings"
+  ],
   "files": [
     "src/index.ts"
   ]

@@ -1,5 +1,5 @@
-import { Step, RegExpStep } from './interfaces';
+import { RegExpStep } from './types';
 
-export function isRegExpStep(step: Step | RegExpStep): step is RegExpStep {
+export function isRegExpStep(step: any): step is RegExpStep {
   return !!step['regex']
 }

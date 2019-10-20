@@ -1,7 +1,7 @@
 import { isRegExpStep } from './isRegExpStep';
-import { Step, RegExpStep } from './interfaces';
+import { RegExpStep, Step } from './types';
 
-export function invokeStep(step: Step | RegExpStep, context, clause, inputs) {
+export function invokeStep(step: Step | RegExpStep, context: any, clause: string, inputs: any[]) {
   if (isRegExpStep(step)) {
     // regex must pass as it is tested above
     const matches = step.regex.exec(clause)!

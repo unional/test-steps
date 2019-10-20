@@ -2,7 +2,7 @@ import { store } from './store';
 import { DuplicateHandler } from './errors';
 import { findStep } from './findStep';
 
-export function defineStep(clause: string, handler) {
+export function defineStep(clause: string, handler: any) {
   const step = findStep(clause)
   if (step && step.handler !== handler) throw new DuplicateHandler(clause)
 

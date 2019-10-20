@@ -3,9 +3,9 @@ import a from 'assertron'
 import { defineStep } from './defineStep';
 import { DuplicateHandler } from './errors';
 
-test('duplicate handler throws DuplicateHandler', async () => {
+test('duplicate handler throws DuplicateHandler', () => {
   defineStep('duplicate handler', () => { return })
-  const err = await a.throws(() => defineStep('duplicate handler', () => { return }), DuplicateHandler)
+  const err = a.throws(() => defineStep('duplicate handler', () => { return }), DuplicateHandler)
   t.strictEqual(err.message, `Handler for 'duplicate handler' is already defined.`)
 })
 
